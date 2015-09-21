@@ -1,7 +1,8 @@
-include ../modules/**/*.jade
+include ../**/markup.jade
 extends ../layouts/default
 
 block meta
   //- TODO: add you page meta tags
 
 block body
+  include ../modules/**/spec.jade
