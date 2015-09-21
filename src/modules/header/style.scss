@@ -1,3 +1,11 @@
 .header {
+  text-align: left;
+  padding: 1rem;
+}
 
+.company-brand {
+  @include t-title--small();
+}
+.styleguide-title {
+  @include t-paragraph();
 }

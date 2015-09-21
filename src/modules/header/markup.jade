@@ -1,0 +1,11 @@
+mixin header(data, options)
+
+  .header(class=attributes.class)
+    if data.logoUrl
+      img(src=data.logoUrl, alt=data.brand + ' logo')
+    else if data.logo
+      img(src=relativePath + data.logo, alt=data.brand + ' logo')
+    else
+      h2.company-brand #{data.brand}
+
+    p.styleguide-title styleguide
