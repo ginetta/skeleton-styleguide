@@ -1,0 +1,48 @@
+$iconSize: 15px;
+$icon-glass-url: url(../assets/icons/glass--white.png);
+
+//spaces
+$s:        $s;
+$s-half:   $s-half;
+$s-double: $s-double;
+
+//colors
+$c-white: $c-white;
+
+.search {
+  display: flex;
+  &-input {
+    flex-grow: 1;
+
+    padding: $s-half $s;
+    background-color: transparent;
+
+    border: 1px solid rgba($c-white, 0.5);
+    transition: 100ms border ease;
+    border-radius: 1.5rem;
+
+    color: $c-white;
+    &:focus {
+      border: 1px solid $c-white;
+      outline: none;
+    }
+  }
+  &-icon {
+    align-self: center;
+    opacity: 0.5;
+    transition: 100ms opacity ease;
+
+    background: $icon-glass-url;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: $iconSize;
+    height: $iconSize;
+
+    margin-left: $s-double;
+  }
+
+  &-input:focus ~ &-icon {
+    opacity: 1;
+  }
+}
