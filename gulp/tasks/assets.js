@@ -8,6 +8,8 @@ module.exports = function (gulp, $, config) {
   var logosDest    = config.paths.logos.dest;
   var faviconsSrc  = config.appFiles.favicons;
   var faviconsDest = config.paths.favicons.dest;
+  var iconsSrc     = config.appFiles.icons;
+  var iconsDest    = config.paths.icons.dest;
   var fontsSrc     = config.appFiles.fonts;
   var fontsDest    = config.paths.fonts.dest;
 
@@ -24,10 +26,14 @@ module.exports = function (gulp, $, config) {
       .pipe($.changed(faviconsSrc))
       .pipe(gulp.dest(faviconsDest));
 
+    var iconsSt = gulp.src(iconsSrc)
+      .pipe($.changed(iconsSrc))
+      .pipe(gulp.dest(iconsDest));
+
     var fontsSt = gulp.src(fontsSrc)
       .pipe($.changed(fontsSrc))
       .pipe(gulp.dest(fontsDest));
 
-    return merge(imagesSt, logosSt, faviconsSt, fontsSt);
+    return merge(imagesSt, logosSt, faviconsSt, iconsSt, fontsSt);
   };
 };

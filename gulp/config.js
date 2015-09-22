@@ -43,6 +43,10 @@ module.exports = function () {
       src:  basePaths.assets + 'favicons/',
       dest: basePaths.dest
     },
+    icons: {
+      src:  basePaths.assets + 'icons/',
+      dest: basePaths.dest + 'assets/icons/'
+    },
     fonts: {
       src:  basePaths.assets + 'fonts/',
       dest: basePaths.dest + 'assets/fonts/'
@@ -57,6 +61,7 @@ module.exports = function () {
     images:   paths.images.src + '**/*',
     logos:    paths.logos.src + '**/*',
     favicons: paths.favicons.src + '**/*',
+    icons:    paths.icons.src + '**/*',
     fonts:    paths.fonts.src + '**/*'
   };
 
