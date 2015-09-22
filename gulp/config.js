@@ -61,8 +61,7 @@ module.exports = function () {
   };
 
   var components = [
-    basePaths.src + 'modules/',
-    basePaths.src + 'elements/'
+    basePaths.src + 'modules/'
   ];
 
   var gulpFiles = [

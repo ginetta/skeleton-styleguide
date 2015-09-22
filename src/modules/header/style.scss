@@ -1,0 +1,10 @@
+.header {
+  text-align: left;
+}
+
+.company-brand {
+  @include t-title--small();
+}
+.styleguide-title {
+  @include t-paragraph();
+}

@@ -1,4 +1,5 @@
-# project-name
+# Styleguide
+This project is about creating templates to display a frontend styleguide
 ---
 
 

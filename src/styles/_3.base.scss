@@ -7,6 +7,7 @@ body, html {
   line-height: 1.5;
 
   background: $c-eigengrau;
+  @include base-font();
 
   /**
    * PX fallback for IE8, Opera Mini and older Androids
@@ -29,12 +30,4 @@ body, html {
 a {
   color: $c-graphite;
   text-decoration: none;
-}
-
-.about {
-  // overflow: hidden;
-  // background-color: #16161D;
-  // height: 100vh;
-  //   position: relative;
-  overflow: hidden;   position: relative; padding: 5% 10%;
 }
