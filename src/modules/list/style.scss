@@ -1,0 +1,40 @@
+$space-left: 20px;
+$space-bottom: 20px;
+
+.list {
+  .list-title {
+    @include t-label();
+    color: $c-darkcloud;
+    padding-left: $space-left;
+    margin-bottom: $space-bottom;
+  }
+  .list-item {
+    position: relative;
+    padding-left: $space-left;
+    &--active:before {
+      content: '';
+      background-color: $c-steelblue;
+      width: 10px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+    &--link {
+      @include t-paragraph;
+      line-height: 1.7;
+      color: $c-cloud;
+      transition: color 100ms ease;
+
+      &:hover {
+        color: $c-white;
+      }
+    }
+  }
+}
+
+.list-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
