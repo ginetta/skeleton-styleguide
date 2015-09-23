@@ -1,14 +1,14 @@
 $space-left: 20px;
 $space-bottom: 20px;
 
-.list {
-  .list-title {
+.nav-list {
+  &-title {
     @include t-label();
     color: $c-darkcloud;
     padding-left: $space-left;
     margin-bottom: $space-bottom;
   }
-  .list-item {
+  &-item {
     position: relative;
     padding-left: $space-left;
     &--active:before {
@@ -31,10 +31,10 @@ $space-bottom: 20px;
       }
     }
   }
+  &-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 }
 
-.list-reset {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
