@@ -11,23 +11,28 @@ $space-bottom: 20px;
   &-item {
     position: relative;
     padding-left: $space-left;
-    &--active:before {
-      content: '';
-      background-color: $c-steelblue;
-      width: 10px;
-      height: 100%;
-      display: block;
-      position: absolute;
-      left: 0;
-    }
-    &--link {
-      @include t-paragraph;
-      line-height: 1.7;
-      color: $c-cloud;
-      transition: color 100ms ease;
-
-      &:hover {
+    &:hover {
+      cursor: pointer;
+      .nav-link {
         color: $c-white;
+      }
+    }
+    &--active {
+      &:hover {
+        cursor: default;
+        .nav-link {
+          color: $c-cloud;
+          cursor: default;
+        }
+      }
+      &:before {
+        content: '';
+        background-color: $c-steelblue;
+        width: 10px;
+        height: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
       }
     }
   }
@@ -38,3 +43,9 @@ $space-bottom: 20px;
   }
 }
 
+.nav-link {
+  @include t-paragraph;
+  line-height: 1.7;
+  color: $c-cloud;
+  transition: color 100ms ease;
+}
