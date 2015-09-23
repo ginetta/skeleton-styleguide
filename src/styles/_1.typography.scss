@@ -19,16 +19,17 @@ $base-line-height : 1.5;
  */
 
 @mixin t-title() {
-  font-size: 5rem;
-  line-height: 1.25;
   margin: 0;
-}
-
-@mixin t-title--small() {
   font-size: 1.2rem;
-  margin: 0;
 }
 
 @mixin t-paragraph() {
   margin: 0;
 }
+
+@mixin t-label(){
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+

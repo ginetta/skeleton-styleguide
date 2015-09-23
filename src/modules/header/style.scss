@@ -1,9 +1,5 @@
-.header {
-  text-align: left;
-}
-
 .company-brand {
-  @include t-title--small();
+  @include t-title();
 }
 .styleguide-title {
   @include t-paragraph();
