@@ -7,4 +7,4 @@ mixin nav-list(data, options)
         if item.isActive
           - itemClasses.push('nav-list-item--active')
         li.nav-list-item(class=itemClasses)
-          a(href="#").nav-link= item.title
+          a(href= item.link).nav-link= item.title
