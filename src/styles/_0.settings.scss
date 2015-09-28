@@ -10,3 +10,16 @@ $breakpoints: (
     "print"               : "print"
 );
 
+/**
+ * Defines the spaces
+ */
+
+// general
+$s:                 12px;
+$s-half:            0.5 * $s;
+$s-double:          2   * $s;
+
+// nav-group
+$nav-space-left:    $s-double;
+$nav-space-bottom:  $s-double;
+

@@ -1,12 +1,13 @@
-$space-left: 20px;
-$space-bottom: 20px;
+$nav-space-left: 24px !default;
+$nav-space-left-half: 0.5 * $nav-space-left;
+$nav-space-bottom: 24px !default;
 
 .nav-group {
   &-title {
     @include t-label();
     color: $c-darkcloud;
-    padding-left: $space-left;
-    margin-bottom: $space-bottom;
+    padding-left: $nav-space-left;
+    margin-bottom: $nav-space-bottom;
   }
   &-list {
     padding: 0;
@@ -17,7 +18,7 @@ $space-bottom: 20px;
 
 .nav-item {
   position: relative;
-  padding-left: $space-left;
+  padding-left: $nav-space-left;
   &:hover {
     cursor: pointer;
     .nav-link {
@@ -35,7 +36,7 @@ $space-bottom: 20px;
     &:before {
       content: '';
       background-color: $c-steelblue;
-      width: 10px;
+      width: $nav-space-left-half;
       height: 100%;
       display: block;
       position: absolute;
