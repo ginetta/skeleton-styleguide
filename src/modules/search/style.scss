@@ -7,7 +7,7 @@ $search-spacing-half:   0.5 * $search-spacing;
 $search-spacing-double: 2 * $search-spacing;
 
 //colors
-$c-white: $c-white;
+$search-font-color: #FFF !default;
 
 .search {
   display: flex;
@@ -21,7 +21,7 @@ $c-white: $c-white;
     transition: 100ms border ease;
     border-radius: 1.5rem;
 
-    color: $c-white;
+    color: $search-font-color;
     &:focus {
       border: 1px solid $c-white;
       outline: none;
