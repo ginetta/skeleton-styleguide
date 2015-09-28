@@ -10,3 +10,23 @@ $breakpoints: (
     "print"               : "print"
 );
 
+/**
+ * Defines the spaces
+ */
+
+// general
+$s:         12px;
+$s-half:    0.5 * $s;
+$s-double:  2   * $s;
+
+// search
+$search-spacing: $s;
+
+
+/**
+ * Defines Icon Styles
+ */
+
+//search
+$search-icon-size: 15px;
+$search-icon-glass-url: url(../assets/icons/glass--white.png);

@@ -1,0 +1,48 @@
+$search-icon-size: 15px !default;
+$search-icon-glass-url: url(../assets/icons/glass--white.png);
+
+//spaces
+$search-spacing:        12px !default;
+$search-spacing-half:   0.5 * $search-spacing;
+$search-spacing-double: 2 * $search-spacing;
+
+//colors
+$search-font-color: #FFF !default;
+
+.search {
+  display: flex;
+  &-input {
+    flex-grow: 1;
+
+    padding: $search-spacing-half $search-spacing;
+    background-color: transparent;
+
+    border: 1px solid rgba($c-white, 0.5);
+    transition: 100ms border ease;
+    border-radius: 1.5rem;
+
+    color: $search-font-color;
+    &:focus {
+      border: 1px solid $c-white;
+      outline: none;
+    }
+  }
+  &-icon {
+    align-self: center;
+    opacity: 0.5;
+    transition: 100ms opacity ease;
+
+    background: $search-icon-glass-url;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: $search-icon-size;
+    height: $search-icon-size;
+
+    margin-left: $search-spacing-double;
+  }
+
+  &-input:focus ~ &-icon {
+    opacity: 1;
+  }
+}
