@@ -2,9 +2,9 @@ $iconSize: 15px;
 $icon-glass-url: url(../assets/icons/glass--white.png);
 
 //spaces
-$s:        $s;
-$s-half:   $s-half;
-$s-double: $s-double;
+$search-spacing:        12px !default;
+$search-spacing-half:   0.5 * $search-spacing;
+$search-spacing-double: 2 * $search-spacing;
 
 //colors
 $c-white: $c-white;
@@ -14,7 +14,7 @@ $c-white: $c-white;
   &-input {
     flex-grow: 1;
 
-    padding: $s-half $s;
+    padding: $search-spacing-half $search-spacing;
     background-color: transparent;
 
     border: 1px solid rgba($c-white, 0.5);
@@ -39,7 +39,7 @@ $c-white: $c-white;
     width: $iconSize;
     height: $iconSize;
 
-    margin-left: $s-double;
+    margin-left: $search-spacing-double;
   }
 
   &-input:focus ~ &-icon {
