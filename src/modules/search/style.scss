@@ -1,5 +1,5 @@
-$iconSize: 15px;
-$icon-glass-url: url(../assets/icons/glass--white.png);
+$search-icon-size: 15px !default;
+$search-icon-glass-url: url(../assets/icons/glass--white.png);
 
 //spaces
 $search-spacing:        12px !default;
@@ -32,12 +32,12 @@ $c-white: $c-white;
     opacity: 0.5;
     transition: 100ms opacity ease;
 
-    background: $icon-glass-url;
+    background: $search-icon-glass-url;
     background-size: cover;
     background-repeat: no-repeat;
 
-    width: $iconSize;
-    height: $iconSize;
+    width: $search-icon-size;
+    height: $search-icon-size;
 
     margin-left: $search-spacing-double;
   }
