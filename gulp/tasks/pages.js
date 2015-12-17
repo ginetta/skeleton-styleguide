@@ -6,6 +6,7 @@ var path          = require('path');
 var pageshelpers  = require('../utils/pagesHelpers');
 var handleError   = require('../utils/handleError');
 
+
 module.exports = function (gulp, $, config) {
   var srcFiles           = config.appFiles.pages;
   var destFiles          = config.paths.pages.dest;
@@ -33,7 +34,7 @@ module.exports = function (gulp, $, config) {
     return (path.relative(destPath, filePath) || '.') + '/';
   };
 
-  return function () {
+  var task = function () {
 
     // Load the content for the page
     function loadContent(language) {
@@ -57,7 +58,8 @@ module.exports = function (gulp, $, config) {
                 return {
                   data:         loadContent(language),
                   relativePath: getRelativePath(file, language),
-                  helpers:      moduleHelpers
+                  helpers:      moduleHelpers,
+                  language:     language
                 };
               }))
               .pipe($.jade({
@@ -74,4 +76,7 @@ module.exports = function (gulp, $, config) {
 
     return merge(pagesStreams);
   };
+
+  task.description = 'Generate all pages from the jade files';
+  return task;
 };

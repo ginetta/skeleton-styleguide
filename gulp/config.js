@@ -1,15 +1,16 @@
 'use strict';
 var argv = require('yargs').argv;
+var path = require('path');
 
 module.exports = function () {
 
   var basePaths = {
+    root:    path.join(__dirname, '..'),
     src:     'src/',
     content: 'content/',
     assets:  'assets/',
     dest:    'build/',
-    tmp:     '.tmp/',
-    bower:   'bower_components/'
+    tmp:     '.tmp/'
   };
 
   var languages = ['en'];
@@ -31,6 +32,9 @@ module.exports = function () {
       src:  basePaths.src + 'pages/',
       dest: basePaths.dest
     },
+    layouts: {
+      src:  basePaths.src + 'layouts/'
+    },
     images: {
       src:  basePaths.content + 'images/',
       dest: basePaths.dest + 'content/images/'
@@ -50,14 +54,15 @@ module.exports = function () {
   };
 
   var appFiles = {
-    scripts:  paths.scripts.src + '**/*.js',
-    styles:   paths.styles.src + '**/*.scss',
-    content:  paths.content.src + '**/*.yml',
-    pages:    paths.pages.src + '**/*.jade',
-    images:   paths.images.src + '**/*',
-    logos:    paths.logos.src + '**/*',
-    favicons: paths.favicons.src + '**/*',
-    fonts:    paths.fonts.src + '**/*'
+    scripts:   paths.scripts.src + '**/*.js',
+    styles:    paths.styles.src + '**/*.scss',
+    content:   paths.content.src + '**/*.yml',
+    pages:     paths.pages.src + '**/*.jade',
+    layouts:   paths.layouts.src + '**/*.jade',
+    images:    paths.images.src + '**/*',
+    logos:     paths.logos.src + '**/*',
+    favicons:  paths.favicons.src + '**/*',
+    fonts:     paths.fonts.src + '**/*'
   };
 
   var components = [
@@ -79,8 +84,6 @@ module.exports = function () {
       privateKey:  argv.privateKey
     }
   };
-
-
 
   return {
     basePaths:    basePaths,
