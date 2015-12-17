@@ -1,7 +1,7 @@
 /**
  * Typography settings
  */
-$base-font-size   : 1em;
+$base-font-size   : 14px;
 $base-font-family : sans-serif;
 $base-font-weight : 300;
 $base-font-style  : normal;
@@ -20,11 +20,12 @@ $base-line-height : 1.5;
 
 @mixin t-title() {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 @mixin t-paragraph() {
   margin: 0;
+  font-size: 1rem;
 }
 
 @mixin t-label(){
