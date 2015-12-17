@@ -2,10 +2,9 @@ body, html {
   margin: 0;
   padding: 0;
 
-  color: $c-white;
   line-height: 1.5;
 
-  background: $c-eigengrau;
+  height: 100%;
   @include base-font();
 
   /**
