@@ -7,12 +7,6 @@ mixin sidebar(data, options)
 
     hr
 
-    +nav-group({
-      title: 'ui components',
-      list: [
-        { title: 'Item 1', link: '#', isActive: true },
-        { title: 'Item 2', link: '#' },
-        { title: 'Item 3', link: '#' },
-        { title: 'Item 4', link: '#' }
-      ]
-    }).sidebar-content
+    each navgroup in data.navigation
+      +nav-group(navgroup)
+

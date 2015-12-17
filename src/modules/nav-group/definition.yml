@@ -1,10 +1,10 @@
 data:
   title: list title
   list:
-    – item: Item 1
+    – title: Item 1
       link: #
-    – item: Item 2
+    – title: Item 2
       link: #
-    – item: Item 3
+    – title: Item 3
       link: #
 options: {}

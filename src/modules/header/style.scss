@@ -3,4 +3,5 @@
 }
 .styleguide-title {
   @include t-paragraph();
+  color: $c-cloud;
 }
