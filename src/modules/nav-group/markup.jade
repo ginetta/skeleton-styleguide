@@ -2,7 +2,7 @@ mixin nav-group(data, options)
   .nav-group(class=attributes.class)
     h4.nav-group-title= data.title
     ul.nav-group-list
-      each item in data.list
+      each item in data.links
         - var itemClasses = []
         if item.isActive
           - itemClasses.push('nav-item--active')

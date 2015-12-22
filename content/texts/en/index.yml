@@ -3,7 +3,7 @@ index:
     subtitle:
     navigation:
       - title: Base Components
-        list:
+        links:
           - title: Colors
             link: #
           - title: Grid
@@ -13,7 +13,7 @@ index:
           - title: Typography
             link: #
       - title: UI Components
-        list:
+        links:
           - title: Buttons
             link: #
           - title: Dropdown
@@ -23,7 +23,7 @@ index:
           - title: Link
             link: #
       - title: Partials
-        list:
+        links:
           - title: Header
             link: #
           - title: Navigation
@@ -31,6 +31,6 @@ index:
           - title: Footer
             link: #
       - title: Pages
-        list:
+        links:
           - title: Home with a veryyyyy long title
             link: #

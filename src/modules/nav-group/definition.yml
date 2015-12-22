@@ -1,6 +1,6 @@
 data:
   title: list title
-  list:
+  links:
     – title: Item 1
       link: #
     – title: Item 2
