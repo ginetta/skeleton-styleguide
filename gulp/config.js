@@ -2,16 +2,23 @@
 var argv = require('yargs').argv;
 var path = require('path');
 
-module.exports = function () {
-
+module.exports = function (dest) {
+  var root = path.join(__dirname, '..');
   var basePaths = {
-    root:    path.join(__dirname, '..'),
-    src:     'src/',
-    content: 'content/',
-    assets:  'assets/',
-    dest:    'build/',
-    tmp:     '.tmp/'
+    src:     root + '/src/',
+    content: root + '/content/',
+    assets:  root + '/assets/',
+    dest:    root + '/build/',
+    tmp:     root + '/.tmp/'
   };
+
+  // This helps overwriting the target destination
+  // For changing .src folders you need to overwrite by hand:
+  // conf = require('thisConfig');
+  // conf.paths.content.src = 'anotherFolder'
+  if (dest != undefined) {
+    basePaths.dest = dest;
+  }
 
   var languages = ['en'];
 
@@ -86,6 +93,7 @@ module.exports = function () {
   };
 
   return {
+    root:         root,
     basePaths:    basePaths,
     languages:    languages,
     paths:        paths,
