@@ -1,6 +1,6 @@
 'use strict';
 var merge      = require('merge-stream');
-var glob          = require('globby').sync;
+var glob       = require('globby').sync;
 
 module.exports = function (gulp, $, config) {
   var srcFiles  = config.paths.content.src;
@@ -8,10 +8,43 @@ module.exports = function (gulp, $, config) {
   var destFiles = config.paths.content.dest;
   var buildDest = config.basePaths.dest;
 
+  // '../filename.html' => 'Filename'
+  // Isn't there a node package to help with this?
+  var getFileName = function(link) {
+    var filename = new String(link).substring(link.lastIndexOf('/') + 1);
+      if(filename.lastIndexOf('.') != -1)
+        filename = filename.substring(0, filename.lastIndexOf('.'));
+     return filename;
+  }
+
+  // '../filename.html'
+  // =>
+  // {
+  //   title: 'Filename',
+  //   link: '../filename.html',
+  // }
+  var transformLinks = function(link) {
+    return {
+      title: getFileName(link),
+      link: link
+    }
+  }
+
+  // '**/*.html'
+  // =>
+  // {
+  //   links: {
+  //     {
+  //       title: 'Filename1',
+  //       link: 'filename1.html',
+  //     },
+  //     ...
+  //   }
+  // }
   var replaceGlobs = function(key, value) {
     if (key === 'links' && typeof value === 'string') {
       var links = glob(value, {cwd: buildDest});
-      return links;
+      return links.map(transformLinks);
     } else {
       return value;
     }
