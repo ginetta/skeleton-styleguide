@@ -1,5 +1,6 @@
-sidebar:
-  subtitle:
+header:
+  company: Ginetta
+  logo: content/images/ginetta.png
 navigation:
   - title: Base Components
     links:

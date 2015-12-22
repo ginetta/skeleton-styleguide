@@ -1,9 +1,6 @@
 mixin sidebar(data, options)
   .sidebar
-    +header({
-      logo: relativePath + 'content/images/ginetta.png',
-      brand: 'Ginetta'
-    }).sidebar-content
+    +header(data.header).sidebar-content
 
     hr
 
