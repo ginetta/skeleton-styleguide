@@ -25,8 +25,8 @@ module.exports = function () {
       dest: basePaths.dest + 'css/'
     },
     content: {
-      src:  basePaths.content + 'texts/',
-      dest: basePaths.dest + 'content/texts/'
+      src:  basePaths.content + 'data/',
+      dest: basePaths.dest + 'content/data/'
     },
     pages: {
       src:  basePaths.src + 'pages/',
