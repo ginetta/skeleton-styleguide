@@ -1,36 +1,35 @@
-index:
-  sidebar:
-    subtitle:
-    navigation:
-      - title: Base Components
-        links:
-          - title: Colors
-            link: #
-          - title: Grid
-            link: #
-          - title: Icons
-            link: #
-          - title: Typography
-            link: #
-      - title: UI Components
-        links:
-          - title: Buttons
-            link: #
-          - title: Dropdown
-            link: #
-          - title: Form element
-            link: #
-          - title: Link
-            link: #
-      - title: Partials
-        links:
-          - title: Header
-            link: #
-          - title: Navigation
-            link: #
-          - title: Footer
-            link: #
-      - title: Pages
-        links:
-          - title: Home with a veryyyyy long title
-            link: #
+sidebar:
+  subtitle:
+navigation:
+  - title: Base Components
+    links:
+      - title: Colors
+        link: #
+      - title: Grid
+        link: #
+      - title: Icons
+        link: #
+      - title: Typography
+        link: #
+  - title: UI Components
+    links:
+      - title: Buttons
+        link: #
+      - title: Dropdown
+        link: #
+      - title: Form element
+        link: #
+      - title: Link
+        link: #
+  - title: Partials
+    links:
+      - title: Header
+        link: #
+      - title: Navigation
+        link: #
+      - title: Footer
+        link: #
+  - title: Pages
+    links:
+      - title: Home with a veryyyyy long title
+        link: #
