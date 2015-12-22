@@ -3,15 +3,7 @@ header:
   logo: content/images/ginetta.png
 navigation:
   - title: Base Components
-    links:
-      - title: Colors
-        link: #
-      - title: Grid
-        link: #
-      - title: Icons
-        link: #
-      - title: Typography
-        link: #
+    links: styleguide/base/*.html
   - title: UI Components
     links:
       - title: Buttons

@@ -1,16 +1,28 @@
 'use strict';
 var merge      = require('merge-stream');
+var glob          = require('globby').sync;
 
 module.exports = function (gulp, $, config) {
   var srcFiles  = config.paths.content.src;
   var languages = config.languages;
   var destFiles = config.paths.content.dest;
+  var buildDest = config.basePaths.dest;
+
+  var replaceGlobs = function(key, value) {
+    if (key === 'links' && typeof value === 'string') {
+      var links = glob(value, {cwd: buildDest});
+      return links;
+    } else {
+      return value;
+    }
+  }
 
   var task = function () {
     // Generate the language file for each language
     var contentStreams = languages.map(function(language) {
       return gulp.src(srcFiles + language + '/**/*.yml')
               .pipe($.concat(language + '.yml'))
+              .pipe($.yaml({space: 2, replacer: replaceGlobs}))
               // TODO: warn when there is a duplicate key
               .pipe(gulp.dest(destFiles));
     });
