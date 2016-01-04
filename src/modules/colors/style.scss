@@ -1,0 +1,13 @@
+$color-panel-size: 100px;
+$color-panel-border-radius: 5px;
+
+.color {
+  width: $color-panel-size;
+  height: $color-panel-size;
+  border-radius: $color-panel-border-radius;
+  border: 1px solid $c-cloud;
+
+  &-label {
+    color: $c-cloud;
+  }
+}

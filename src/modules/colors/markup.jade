@@ -1,0 +1,5 @@
+mixin color(data, options)
+  .color(class=attributes.class, style='background-color:'+ data.hex + '')
+  p.color-label.t-paragraph
+    span #{data.name} <br>
+    span #{data.hex}
