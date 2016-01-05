@@ -1,5 +1,5 @@
 $color-panel-size: 100px;
-$color-panel-border-radius: 5px;
+$color-panel-border-radius: $s-half !default;
 
 .color {
   width: $color-panel-size;
