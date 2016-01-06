@@ -1,0 +1,37 @@
+$preview-border-radius: $s-half !default;
+
+.typography {
+  display: flex;
+  flex-flow: row wrap;
+  &-description {
+    margin: 0;
+    color: $c-cloud;
+  }
+  &-preview {
+    position: relative;
+    flex: 1;
+    margin-left: $s;
+    padding: $s;
+    border: 1px solid $c-cloud;
+    border-radius: $preview-border-radius;
+    height: 100%;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    background-color: $c-white;
+
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:after {
+      content:'';
+      width: 100%;
+      display: block;
+      background-color: $c-white;
+      height: $s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
