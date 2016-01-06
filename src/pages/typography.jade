@@ -1,0 +1,12 @@
+include ../**/markup.jade
+extends ../layouts/default
+
+block body
+  +typography({
+    name: 'Typography Name',
+    fontFamily: 'Arial',
+    fontWeight: 'normal',
+    fontStretch: 'condensed',
+    fontSize: '3rem',
+    lineHeight: '1.5'
+  })

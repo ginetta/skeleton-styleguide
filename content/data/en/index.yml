@@ -4,6 +4,8 @@ header:
 navigation:
   - title: Base Components
     links:
+      - title: Typography
+        link: typography.html
       - title: Colors
         link: colors.html
   - title: Sites
