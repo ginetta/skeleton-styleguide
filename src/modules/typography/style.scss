@@ -10,16 +10,19 @@ $preview-border-radius: $s-half !default;
   &-preview {
     flex: 1;
     margin-left: $s;
+    padding: $s;
     border: 1px solid $c-cloud;
     border-radius: $preview-border-radius;
 
     background-color: $c-white;
 
-    display: block; /* Fallback for non-webkit */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &-text {
+      display: block; /* Fallback for non-webkit */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 
