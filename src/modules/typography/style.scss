@@ -16,6 +16,9 @@ $preview-border-radius: $s-half !default;
 
     background-color: $c-white;
 
+    // ensures optimal line length regardless of font-size
+    max-width: 35em;
+
     &-text {
       display: block; /* Fallback for non-webkit */
       display: -webkit-box;
