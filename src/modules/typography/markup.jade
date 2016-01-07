@@ -1,16 +1,15 @@
 mixin typography(data, options)
 
-  - var fontSize = parseInt('' + data.fontSize + '');
-  - var optimalHeight = 10; /* optimal height: 10rem */
-  - var i = linesToShow = 1;
-  - var effectiveHeight = fontSize * data.lineHeight * linesToShow;
-  - var x = optimalHeight/effectiveHeight;
+  - var fontSize = parseFloat(data.fontSize);
+  - var optimalHeight = 10; // optimal height: 10rem
+  - var effectiveHeightOfLine = fontSize * data.lineHeight;
+  - var linesToShow = Math.floor(optimalHeight/effectiveHeightOfLine);
 
-  - for (var i = 0; i <= x; ++i)
-    if x > 1
-      - var linesToShow = i;
+  //- ensure that we have always, at least one line
+  if linesToShow === 0
+    - linesToShow = 1
 
-  - var typographyPreviewHeight = fontSize * data.lineHeight * linesToShow;
+  - var typographyPreviewHeight = effectiveHeightOfLine * linesToShow;
 
   .typography(class=attributes.class)
     p.typography-description
