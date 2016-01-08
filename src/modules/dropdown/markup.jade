@@ -1,0 +1,5 @@
+mixin dropdown(data, options)
+  .dropdown(class=attributes.class)
+    select(id='#{data.selectId}')
+      each option in data.options
+        option(value=option.value)= option.label

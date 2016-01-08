@@ -1,0 +1,39 @@
+$dropdown-border-radius: $s-fourth !default;
+$arrow-size: $s-fourth !default;
+
+.dropdown {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $c-cloud;
+    width: 120px;
+    border-radius: $dropdown-border-radius;
+    overflow: hidden;
+    background-color: $c-white;
+  &:after {
+    content: '';
+    position: absolute;
+    right: $s;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+    border-left: $arrow-size solid transparent;
+    border-right: $arrow-size solid transparent;
+    border-top: $arrow-size solid $c-eigengrau;
+  }
+  & select {
+    padding: $s-half;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+}
