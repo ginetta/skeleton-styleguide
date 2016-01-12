@@ -1,0 +1,16 @@
+$component-preview-border-radius: $s-fourth !default;
+
+.component-preview {
+  height: 10em;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $c-cloud;
+  border-radius: $component-preview-border-radius;
+  margin-bottom: $s;
+  background-color: $c-white;
+}
+
+.component-name {
+  margin: 0;
+  color: $c-cloud;
+}
