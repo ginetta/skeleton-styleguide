@@ -86,7 +86,7 @@ module.exports = function (dest) {
     testing: {
       host:        argv.host,
       username:    argv.username,
-      projectPath: 'preview.ginetta.net/styleguide/',
+      projectPath: 'preview.ginetta.net/skeleton-styleguide/',
       releasePath: argv.path,
       privateKey:  argv.privateKey
     }

@@ -1,4 +1,4 @@
-# Styleguide
+# Skeleton - styleguide
 This project is about creating templates to display a frontend styleguide
 ---
 
