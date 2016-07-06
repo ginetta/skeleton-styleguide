@@ -2,8 +2,9 @@ include ../**/markup.jade
 extends ../layouts/default
 
 block meta
+  title project-name
   //- TODO: add you page meta tags
 
 block body
-  +sidebar(data)
-  +content
+  +styleguide-sidebar(data)
+  +styleguide-content

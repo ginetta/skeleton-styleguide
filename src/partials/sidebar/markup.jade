@@ -1,9 +1,9 @@
-mixin sidebar(data, options)
-  .sidebar
-    +header(data.header).sidebar-content
+mixin styleguide-sidebar(data, options)
+  .styleguide-sidebar
+    +styleguide-header(data.header).styleguide-sidebar-content
 
     hr
 
     each navgroup in data.navigation
-      +nav-group(navgroup)
+      +styleguide-nav-group(navgroup)
 

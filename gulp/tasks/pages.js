@@ -1,4 +1,5 @@
 'use strict';
+var yamljs        = require('yamljs');
 var jade          = require('jade');
 var merge         = require('merge-stream');
 var path          = require('path');
@@ -10,7 +11,7 @@ module.exports = function (gulp, $, config) {
   var srcFiles           = config.appFiles.pages;
   var destFiles          = config.paths.pages.dest;
   var languages          = config.languages;
-  var contentPath        = config.paths.content.dest;
+  var contentPath        = config.paths.content.src;
   var baseDir            = config.basePaths.src;
   var moduleHelpers      = pageshelpers(config);
 
@@ -37,7 +38,8 @@ module.exports = function (gulp, $, config) {
 
     // Load the content for the page
     function loadContent(language) {
-      return require(contentPath + language + '.json');
+      // return require(contentPath + language + '.json');
+      return yamljs.load(contentPath + language + '/index.yml');
     }
 
     function getDestPath(language) {
