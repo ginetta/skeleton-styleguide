@@ -5,20 +5,13 @@ var path = require('path');
 module.exports = function (dest) {
   var root = path.join(__dirname, '..');
   var basePaths = {
-    src:     root + '/src/',
-    content: root + '/content/',
-    assets:  root + '/assets/',
-    dest:    root + '/build/',
-    tmp:     root + '/.tmp/'
+    root:    path.join(__dirname, '..'),
+    src:     'src/',
+    content: 'content/',
+    assets:  'assets/',
+    dest:    'build/',
+    tmp:     '.tmp/'
   };
-
-  // This helps overwriting the target destination
-  // For changing .src folders you need to overwrite by hand:
-  // conf = require('thisConfig');
-  // conf.paths.content.src = 'anotherFolder'
-  if (dest != undefined) {
-    basePaths.dest = dest;
-  }
 
   var languages = ['en'];
 
@@ -32,8 +25,8 @@ module.exports = function (dest) {
       dest: basePaths.dest + 'css/'
     },
     content: {
-      src:  basePaths.content + 'data/',
-      dest: basePaths.dest + 'content/data/'
+      src:  basePaths.content + 'texts/',
+      dest: basePaths.dest + 'content/texts/'
     },
     pages: {
       src:  basePaths.src + 'pages/',
@@ -74,7 +67,7 @@ module.exports = function (dest) {
 
   var components = [
     basePaths.src + 'modules/',
-    basePaths.src + 'partials/'
+    basePaths.src + 'elements/'
   ];
 
   var gulpFiles = [
@@ -93,7 +86,6 @@ module.exports = function (dest) {
   };
 
   return {
-    root:         root,
     basePaths:    basePaths,
     languages:    languages,
     paths:        paths,
