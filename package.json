@@ -12,6 +12,7 @@
     "deploy": "gulp deploy"
   },
   "dependencies": {
+    "jquery": "^3.0.0",
     "sensible": "0.5.4"
   },
   "devDependencies": {
