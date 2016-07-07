@@ -2,7 +2,7 @@ $nav-padding: 24px !default;
 $nav-space-bottom: $nav-padding !default;
 $nav-active-carret-width: 10px !default;
 
-.nav-group {
+.styleguide-nav-group {
   padding: $nav-padding;
 
   &-title {
@@ -18,7 +18,7 @@ $nav-active-carret-width: 10px !default;
   }
 }
 
-.nav-item {
+.styleguide-nav-item {
   position: relative;
   &:hover {
     cursor: pointer;
@@ -29,7 +29,7 @@ $nav-active-carret-width: 10px !default;
   &--active {
     &:hover {
       cursor: default;
-      .nav-link {
+      .styleguide-nav-link {
         color: $c-cloud;
         cursor: default;
       }
@@ -47,7 +47,7 @@ $nav-active-carret-width: 10px !default;
   }
 }
 
-.nav-link {
+.styleguide-nav-link {
   @include t-paragraph;
   line-height: 1.7;
   color: $c-cloud;
