@@ -21,7 +21,6 @@
     "browser-sync": "^2.6.5",
     "del": "^1.1.1",
     "glob": "^6.0.4",
-    "globby": "^4.0.0",
     "gulp": "gulpjs/gulp.git#4.0",
     "gulp-a11y": "^0.1.1",
     "gulp-accessibility": "^1.2.1",

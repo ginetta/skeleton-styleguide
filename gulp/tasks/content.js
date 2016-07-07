@@ -1,6 +1,6 @@
 'use strict';
 var merge      = require('merge-stream');
-var glob       = require('globby').sync;
+var glob       = require('glob').sync;
 
 module.exports = function (gulp, $, config) {
   var srcFiles  = config.paths.content.src;
