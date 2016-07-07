@@ -5,6 +5,7 @@ var path = require('path');
 module.exports = function (dest) {
   var root = path.join(__dirname, '..');
   var basePaths = {
+    root:    path.join(__dirname, '..'),
     src:     root + '/src/',
     content: root + '/content/',
     assets:  root + '/assets/',
