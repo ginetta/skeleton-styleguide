@@ -1,0 +1,9 @@
+data:
+  name: typography name
+  fontFamily: font-family
+  fontWeight: font-weight
+  fontStretch: font-stretch
+  fontSize: font-size
+  lineHeight: line-height
+
+options: {}
