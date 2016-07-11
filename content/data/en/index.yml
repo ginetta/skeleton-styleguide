@@ -10,6 +10,8 @@ navigation:
         link: colors.html
       - title: Dropdowns
         link: dropdown.html
+      - title: Component Preview
+        link: component-preview.html
   - title: Sites
     links:
       - title: Ginetta
