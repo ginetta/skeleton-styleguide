@@ -2,16 +2,24 @@
 var argv = require('yargs').argv;
 var path = require('path');
 
-module.exports = function () {
-
+module.exports = function (dest) {
+  var root = path.join(__dirname, '..');
   var basePaths = {
     root:    path.join(__dirname, '..'),
-    src:     'src/',
-    content: 'content/',
-    assets:  'assets/',
-    dest:    'build/',
-    tmp:     '.tmp/'
+    src:     root + '/src/',
+    content: root + '/content/',
+    assets:  root + '/assets/',
+    dest:    root + '/build/',
+    tmp:     root + '/.tmp/'
   };
+
+  // This helps overwriting the target destination
+  // For changing .src folders you need to overwrite by hand:
+  // conf = require('thisConfig');
+  // conf.paths.content.src = 'anotherFolder'
+  if (dest != undefined) {
+    basePaths.dest = dest;
+  }
 
   var languages = ['en'];
 
@@ -25,8 +33,8 @@ module.exports = function () {
       dest: basePaths.dest + 'css/'
     },
     content: {
-      src:  basePaths.content + 'texts/',
-      dest: basePaths.dest + 'content/texts/'
+      src:  basePaths.content + 'data/',
+      dest: basePaths.dest + 'content/data/'
     },
     pages: {
       src:  basePaths.src + 'pages/',
@@ -67,7 +75,7 @@ module.exports = function () {
 
   var components = [
     basePaths.src + 'modules/',
-    basePaths.src + 'elements/'
+    basePaths.src + 'partials/'
   ];
 
   var gulpFiles = [
@@ -79,13 +87,14 @@ module.exports = function () {
     testing: {
       host:        argv.host,
       username:    argv.username,
-      projectPath: 'preview.ginetta.net/skeleton/', // 'client.ginetta.net/project-name/'
+      projectPath: 'preview.ginetta.net/skeleton-styleguide/',
       releasePath: argv.path,
       privateKey:  argv.privateKey
     }
   };
 
   return {
+    root:         root,
     basePaths:    basePaths,
     languages:    languages,
     paths:        paths,

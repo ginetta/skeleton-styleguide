@@ -1,5 +1,5 @@
 {
-  "name": "project-name",
+  "name": "skeleton-styleguide",
   "description": "",
   "version": "0.0.0",
   "main": "dist/index.html",
@@ -12,6 +12,7 @@
     "deploy": "gulp deploy"
   },
   "dependencies": {
+    "jquery": "^3.0.0",
     "sensible": "0.8.1"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-sync": "^0.1.4",
     "gulp-util": "^3.0.4",
+    "gulp-yaml": "^1.0.1",
     "jade": "^1.11.0",
     "jade-inline-file": "^0.1.0",
     "lodash": "^4.13.1",
@@ -48,8 +50,8 @@
     "yamljs": "^0.2.8",
     "yargs": "^4.8.0"
   },
-  "engines": {
-    "npm": ">=1.1.65",
-    "node": ">=0.12.9"
+  "engines" : {
+    "npm" : ">=1.1.65",
+    "node" : ">=0.12.9"
   }
 }

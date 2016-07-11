@@ -10,3 +10,15 @@ $breakpoints: (
     "print"               : "print"
 );
 
+/**
+ * Defines the spaces
+ */
+
+// general
+$s:                 12px;
+$s-half:            .5 * $s;
+$s-double:          2   * $s;
+
+$sidebar-padding:   $s-double;
+$nav-padding:       $sidebar-padding;
+

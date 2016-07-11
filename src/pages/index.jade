@@ -1,13 +1,9 @@
-include ../modules/**/*.jade
-include ../elements/**/*.jade
-
+include ../**/markup.jade
 extends ../layouts/default
 
 block meta
-  title project-name
   //- TODO: add you page meta tags
 
 block body
-  .about.l-absolute-centered
-    +header(data.index.header)
-      != helpers.markdown(data.index.content)
+  +sidebar(data)
+  +content

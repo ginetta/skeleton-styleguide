@@ -1,0 +1,9 @@
+mixin sidebar(data, options)
+  .sidebar
+    +header(data.header).sidebar-content
+
+    hr
+
+    each navgroup in data.navigation
+      +nav-group(navgroup)
+

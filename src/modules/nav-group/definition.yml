@@ -1,0 +1,10 @@
+data:
+  title: list title
+  links:
+    – title: Item 1
+      link: #
+    – title: Item 2
+      link: #
+    – title: Item 3
+      link: #
+options: {}

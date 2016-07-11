@@ -1,0 +1,55 @@
+$nav-padding: 24px !default;
+$nav-space-bottom: $nav-padding !default;
+$nav-active-carret-width: 10px !default;
+
+.nav-group {
+  padding: $nav-padding;
+
+  &-title {
+    @include t-label();
+    color: $c-darkcloud;
+    margin-bottom: $nav-space-bottom;
+  }
+
+  &-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+.nav-item {
+  position: relative;
+  &:hover {
+    cursor: pointer;
+    .nav-link {
+      color: $c-white;
+    }
+  }
+  &--active {
+    &:hover {
+      cursor: default;
+      .nav-link {
+        color: $c-cloud;
+        cursor: default;
+      }
+    }
+    &:before {
+      content: '';
+      background-color: $c-steelblue;
+      width: $nav-active-carret-width;
+      height: 100%;
+      display: block;
+      position: absolute;
+      left: -$nav-padding;
+      top: 0;
+    }
+  }
+}
+
+.nav-link {
+  @include t-paragraph;
+  line-height: 1.7;
+  color: $c-cloud;
+  transition: color 100ms ease;
+}

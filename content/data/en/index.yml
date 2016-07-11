@@ -1,0 +1,12 @@
+header:
+  company: Ginetta
+  logo: content/images/ginetta.png
+navigation:
+  - title: Sites
+    links:
+      - title: Ginetta
+        link: http://ginetta.net
+      - title: Comet
+        link: http://comet.ginetta.net/website/branch/releases/spec/
+      - title: Helsana Baby
+        link: http://helsana.ginetta.net//baby/pages/baby.html

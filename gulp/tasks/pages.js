@@ -1,5 +1,4 @@
 'use strict';
-var yamljs        = require('yamljs');
 var jade          = require('jade');
 var merge         = require('merge-stream');
 var path          = require('path');
@@ -38,8 +37,7 @@ module.exports = function (gulp, $, config) {
 
     // Load the content for the page
     function loadContent(language) {
-
-      return yamljs.load(contentPath + language + '.yml');
+      return require(contentPath + language + '.json');
     }
 
     function getDestPath(language) {

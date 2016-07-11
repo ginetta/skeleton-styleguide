@@ -1,0 +1,7 @@
+.company-brand {
+  @include t-title();
+}
+.styleguide-title {
+  @include t-paragraph();
+  color: $c-cloud;
+}

@@ -1,9 +1,9 @@
 /**
  * Typography settings
  */
-$base-font-size   : 1em;
+$base-font-size   : 14px;
 $base-font-family : sans-serif;
-$base-font-weight : 300;
+$base-font-weight : 400;
 $base-font-style  : normal;
 $base-line-height : 1.5;
 
@@ -18,9 +18,19 @@ $base-line-height : 1.5;
  * Typography classes
  */
 
-.t-title {
-  @include base-font;
-  font-size: 5rem;
-  line-height: 1.25;
+@mixin t-title() {
   margin: 0;
+  font-size: 2rem;
 }
+
+@mixin t-paragraph() {
+  margin: 0;
+  font-size: 1rem;
+}
+
+@mixin t-label(){
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
