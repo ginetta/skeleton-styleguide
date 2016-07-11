@@ -1,5 +1,5 @@
-mixin dropdown(data, options)
-  .dropdown(class=attributes.class)
-    select(id='#{data.selectId}')
+mixin styleguide-dropdown(data, options)
+  .styleguide-dropdown(class=attributes.class)
+    select(name='{data.name}')
       each option in data.options
         option(value=option.value)= option.label
