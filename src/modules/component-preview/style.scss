@@ -5,8 +5,7 @@ $component-preview-border-radius: $s-half !default;
   &__image {
     border: 1px solid $c-cloud;
     border-radius: $component-preview-border-radius;
-    padding: 1rem;
-    margin: $s;
+    padding: $s;
     text-align: center;
     img {
       height: auto;
@@ -14,7 +13,6 @@ $component-preview-border-radius: $s-half !default;
     }
   }
   &__name {
-    margin: 0 $s;
     color: $c-cloud;
   }
 }
