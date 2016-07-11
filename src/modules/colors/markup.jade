@@ -1,5 +1,6 @@
-mixin color(data, options)
-  .color(class=attributes.class, style='background-color:'+ data.hex + '')
-  p.color-label.t-paragraph
+mixin styleguide-color(data, options)
+  .styleguide-color(class=attributes.class, style='background-color:'+ data.color + '')
+  p.styleguide-color-label.t-paragraph
     span #{data.name} <br>
-    span #{data.hex}
+    span #{data.desc} <br>
+    span #{data.color}
