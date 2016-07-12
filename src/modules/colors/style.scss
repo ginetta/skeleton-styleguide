@@ -1,13 +1,21 @@
 $color-panel-size: 100px;
 $color-panel-border-radius: $s-half !default;
+$color-panel-border-color: $c-cloud;
+$color-panel-label-color: $c-darkcloud;
+$color-panel-gutter: $s;
 
 .styleguide-color {
-  width: $color-panel-size;
-  height: $color-panel-size;
-  border-radius: $color-panel-border-radius;
-  border: 1px solid $c-cloud;
-
-  &-label {
-    color: $c-cloud;
+  &__preview {
+    width: $color-panel-size;
+    height: $color-panel-size;
+    border-radius: $color-panel-border-radius;
+    border: 1px solid $color-panel-border-color;
+  }
+  &__label {
+    margin-top: $color-panel-gutter;
+    color: $color-panel-label-color;
+  }
+  &__caption-row {
+    display: block;
   }
 }
