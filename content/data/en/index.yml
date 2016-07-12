@@ -4,14 +4,18 @@ header:
 navigation:
   - title: Base Components
     links:
-      - title: Typography
-        link: typography.html
       - title: Colors
         link: colors.html
-      - title: Dropdowns
-        link: dropdown.html
       - title: Component Preview
         link: component-preview.html
+      - title: Dropdowns
+        link: dropdown.html
+      - title: Header
+        link: header.html
+      - title: Nav-group
+        link: nav-group.html
+      - title: Typography
+        link: typography.html
   - title: Sites
     links:
       - title: Ginetta
