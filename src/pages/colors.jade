@@ -2,8 +2,4 @@ include ../**/markup.jade
 extends ../layouts/default
 
 block body
-  +styleguide-color({
-    name: 'Color Name',
-    desc: 'Description',
-    color: '#00FFFF'
-  })
+  include ../modules/colors/spec.jade
