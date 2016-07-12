@@ -1,0 +1,18 @@
+$component-preview-border-radius: $s-half !default;
+
+.styleguide-component-preview {
+
+  &__image {
+    border: 1px solid $c-cloud;
+    border-radius: $component-preview-border-radius;
+    padding: $s;
+    text-align: center;
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+  &__name {
+    color: $c-cloud;
+  }
+}
