@@ -1,11 +1,11 @@
-.content {
+.styleguide-content {
   position: relative;
   overflow: hidden;
   flex-grow: 1;
   height: 100%;
   background-color: $c-eigengrau;
 }
-.content-iframe {
+.styleguide-content-iframe {
   border: 0;
   background: $c-white;
   width: 100%;
@@ -15,7 +15,7 @@
   left: 0;
   z-index: 1;
 }
-.content-loading {
+.styleguide-content-loading {
   position: absolute;
   top: 50%;
   left: 50%;
