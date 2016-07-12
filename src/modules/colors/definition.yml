@@ -1,0 +1,5 @@
+data:
+  – name: Color Name
+    desc: Description
+    color: #00FFFF
+options: {}
