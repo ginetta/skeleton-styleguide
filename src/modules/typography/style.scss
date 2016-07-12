@@ -1,0 +1,30 @@
+$preview-border-radius: $s-half !default;
+
+.styleguide-typography {
+  display: flex;
+  flex-flow: row wrap;
+  &-description {
+    margin: 0;
+    color: $c-cloud;
+  }
+  &-preview {
+    flex: 1;
+    margin-left: $s;
+    padding: $s;
+    border: 1px solid $c-cloud;
+    border-radius: $preview-border-radius;
+
+    background-color: $c-white;
+
+    // ensures optimal line length regardless of font-size
+    max-width: 35em;
+
+    &-text {
+      display: block; /* Fallback for non-webkit */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
