@@ -2,10 +2,14 @@ header:
   company: Ginetta
   logo: content/images/ginetta.png
 navigation:
-  - title: Base Components
+  - title: Base
     links:
       - title: Colors
         link: colors.html
+      - title: Typography
+        link: typography.html
+  - title: Modules
+    links:
       - title: Component Preview
         link: component-preview.html
       - title: Dropdowns
@@ -14,13 +18,3 @@ navigation:
         link: header.html
       - title: Nav-group
         link: nav-group.html
-      - title: Typography
-        link: typography.html
-  - title: Sites
-    links:
-      - title: Ginetta
-        link: http://ginetta.net
-      - title: Comet
-        link: http://comet.ginetta.net/website/branch/releases/spec/
-      - title: Helsana Baby
-        link: http://helsana.ginetta.net//baby/pages/baby.html
