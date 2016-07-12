@@ -2,17 +2,5 @@ include ../**/markup.jade
 extends ../layouts/default
 
 block body
-  +styleguide-component-preview({
-    name: 'Component Name',
-    image: 'http://placehold.it/350x150',
-  })
+  include ../modules/component-preview/spec.jade
 
-  +styleguide-component-preview({
-    name: 'Component Name',
-    image: 'http://placehold.it/600x300'
-  })
-  
-  +styleguide-component-preview({
-    name: 'Component Name',
-    image: 'http://placehold.it/2600x1300'
-  })

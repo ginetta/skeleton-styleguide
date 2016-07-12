@@ -2,12 +2,4 @@ include ../**/markup.jade
 extends ../layouts/default
 
 block body
-  +styleguide-dropdown({
-    name: 'name',
-    options: [ 
-      { label: 'Small', value: 'small' },
-      { label: 'Medium', value: 'medium' },
-      { label: 'Large', value: 'large' }
-    ]
-  })
-  
+  include ../modules/dropdown/spec.jade
