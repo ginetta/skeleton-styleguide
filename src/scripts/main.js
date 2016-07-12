@@ -4,12 +4,12 @@
 // Make sure to add it to the vendors in /src/scripts/vendor.js
 var $ = require('jquery');
 var contentIframeEl = $('#styleguide-content');
-var navItems = $('.nav-item');
-var activeClass = 'nav-item--active';
+var navItems = $('.js-styleguide-nav-item');
+var activeClass = 'styleguide-nav-item--active';
 
 // The code for the website comes here.
 navItems.each(function(i) {
-  $(this).find('.nav-link').on('click', function(e){
+  $(this).find('.js-styleguide-nav-link').on('click', function(e){
     e.preventDefault();
     changeContent($(this).attr('href'));
     navItems.removeClass(activeClass);

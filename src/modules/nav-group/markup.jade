@@ -7,5 +7,5 @@ mixin styleguide-nav-group(data, options)
           - var itemClasses = []
           if item.isActive
             - itemClasses.push('styleguide-nav-item--active')
-          li.styleguide-nav-item(class=itemClasses)
-            a(href= item.link).styleguide-nav-link= item.title
+          li.styleguide-nav-item.js-styleguide-nav-item(class=itemClasses)
+            a(href= item.link).styleguide-nav-link.js-styleguide-nav-link= item.title
