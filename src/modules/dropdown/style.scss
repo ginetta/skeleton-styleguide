@@ -1,39 +1,39 @@
+$dropdown-border-color: $c-cloud !default;
 $dropdown-border-radius: $s-fourth !default;
-$arrow-size: $s-fourth !default;
+$dropdown-arrow-size: $s-fourth !default;
+$dropdown-arrow-gutter: $s !default;
+$dropdown-arrow-color: $c-eigengrau !default;
+$dropdown-select-padding: $s-half !default;
 
 .styleguide-dropdown {
     position: relative;
-    padding: 0;
-    margin: 0;
-    border: 1px solid $c-cloud;
+    border: 1px solid $dropdown-border-color;
     width: 120px;
     border-radius: $dropdown-border-radius;
-    overflow: hidden;
-    background-color: $c-white;
   &:after {
     content: '';
     position: absolute;
-    right: $s;
+    right: $dropdown-arrow-gutter;
     top: 50%;
     transform: translateY(-50%);
-
-    width: 0;
-    height: 0;
-    border-left: $arrow-size solid transparent;
-    border-right: $arrow-size solid transparent;
-    border-top: $arrow-size solid $c-eigengrau;
+    border-left: $dropdown-arrow-size solid transparent;
+    border-right: $dropdown-arrow-size solid transparent;
+    border-top: $dropdown-arrow-size solid $dropdown-arrow-color;
   }
   select {
-    padding: $s-half;
-    width: 130%;
+    padding: $dropdown-select-padding;
     border: none;
-    box-shadow: none;
     background-color: transparent;
-    background-image: none;
     appearance: none;
     cursor: pointer;
+    width: 100%;
     &:focus {
+      width: 130%;
       outline: none;
+    }
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
     }
   }
 }
