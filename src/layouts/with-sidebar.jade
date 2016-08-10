@@ -1,0 +1,12 @@
+extends ../layouts/default
+include ../partials/sidebar/markup.jade
+include ../partials/content/markup.jade
+
+
+block meta
+  //- TODO: add you page meta tags
+
+block body
+  +styleguide-sidebar(data)
+  block content
+    +styleguide-content
