@@ -41,7 +41,7 @@ function setIframeSrc(url) {
 }
 
 function convertURL(url) {
-  var page = url.substr(url.indexOf("?") + 6);
+  var page = url.substr(url.indexOf('?') + 6);
   var baseURL = window.location.href.split('?')[0];
   return baseURL + page;
 }
@@ -50,7 +50,7 @@ function loadIframe() {
   var currentURL = window.location.href;
   var url = convertURL(window.location.href);
   setActiveClass(currentURL);
-  if (currentURL.includes("?page=")) {
+  if (currentURL.includes('?page=')) {
     setIframeSrc(url);
   } else {
     setIframeSrc('');
@@ -59,8 +59,8 @@ function loadIframe() {
 
 function setActiveClass(url) {
     sidebar.find('.' + activeClass).removeClass(activeClass);
-    if (url.includes("?page=")) {
-      var target = url.substr(url.indexOf("?") + 6).split('.')[0];
+    if (url.includes('?page=')) {
+      var target = url.substr(url.indexOf('?') + 6).split('.')[0];
       $('a[href*=' + target + ']').addClass(activeClass);
     }
 }
