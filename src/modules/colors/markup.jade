@@ -1,6 +1,7 @@
 mixin styleguide-color(data, options)
-  .styleguide-color(class=attributes.class, style='background-color:'+ data.color + '')
-  p.styleguide-color-label.t-paragraph
-    span #{data.name} <br>
-    span #{data.desc} <br>
-    span #{data.color}
+figure.styleguide-color(class=attributes.class)
+  .styleguide-color__preview(style='background-color:'+ data.color + '')
+  figcaption.styleguide-color__label.t-paragraph
+    strong.styleguide-color__caption-row #{data.name} 
+    span.styleguide-color__caption-row #{data.desc} 
+    span.styleguide-color__caption-row #{data.color}
