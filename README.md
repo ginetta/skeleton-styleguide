@@ -1,12 +1,11 @@
 # Skeleton - styleguide
 This project is about creating templates to display a frontend styleguide
----
-
+  ---
 
 ## Instructions to run the project
 
 ### Prerequisites
-You will need 
+You will need
   - [node.js](http://nodejs.org) to run the skeleton.
 
 ### Build

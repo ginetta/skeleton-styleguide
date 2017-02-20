@@ -1,18 +1,29 @@
+extends: 'airbnb-base'
+env:
+  node: true
+  browser: false
 rules:
-  # specify whether double or single quotes should be used
-  quotes: [2, "single", "avoid-escape"]
 
-  # controls location of Use Strict Directives
-  strict: [2, "global"]
+  no-multiple-empty-lines:
+      - 2
+      - max: 1
 
-  # disallow use of multiple spaces
-  no-multi-spaces: [0]
+  # Force trailing commas as this promotes smaller diffs. However
+  # we want to disable on functions, as this is invalid syntax (without any
+  # transpilation)
+  comma-dangle:
+    - 2
+    - arrays: only-multiline
+      objects: only-multiline
+      imports: only-multiline
+      exports: only-multiline
+      functions: never
 
-  # enforces spacing between keys and values in object literal properties
-  key-spacing: [0]
 
-  # allow just one var statement per function (off by default)
-  one-var: [2, {uninitialized: "always", initialized: "never"}]
+
+  # -------------------
+  # Static Complexity Rules: they guide us to write better code.
+  # -------------------
 
   # specify the maximum number of statement allowed in a function
   # (off by default)
@@ -31,3 +42,11 @@ rules:
 
   # specify the maximum depth callbacks can be nested (off by default)
   max-nested-callbacks: [1, 2]
+
+  # Forbid the import of external modules that are not declared in the
+  # package.json's dependencies, devDependencies, optionalDependencies or
+  # peerDependencies
+  # (note: we disable this rule because packages inside `src` behave like
+  # aliases: e.g.: require('elements/foo') works).
+  import/no-extraneous-dependencies: [0]
+  import/no-unresolved: [0]

@@ -1,0 +1,54 @@
+box: node
+
+build:
+  steps:
+
+    - script:
+      name: echo nodejs information
+      code: |
+        echo "node version $(node -v) running"
+        echo "npm version $(npm -v) running"
+    - npm-install
+
+    - maxon/npm-run:
+      script: build
+
+deploy-branch:
+  steps:
+    - install-packages:
+      packages: rsync
+
+    - add-to-known_hosts:
+      hostname: $G_STAGING_HOST
+
+    - add-ssh-key:
+      keyname: G_STAGING_KEY
+
+    - lejoe/rsync-deploy:
+      host: $G_STAGING_HOST
+      homepath: $G_STAGING_HOME_PATH
+      directory: $G_STAGING_PROJECT_PATH/branch/$WERCKER_GIT_BRANCH
+      user: $G_STAGING_USER
+      sshkey: $G_STAGING_KEY
+      source: $WERCKER_SOURCE_DIR/build/
+
+deploy-master:
+  steps:
+    - install-packages:
+      packages: rsync
+
+    - add-to-known_hosts:
+      hostname: $G_STAGING_HOST
+
+    - add-ssh-key:
+      keyname: G_STAGING_KEY
+
+    - lejoe/rsync-deploy:
+      host: $G_STAGING_HOST
+      homepath: $G_STAGING_HOME_PATH
+      directory: $G_STAGING_PROJECT_PATH/master
+      user: $G_STAGING_USER
+      sshkey: $G_STAGING_KEY
+      source: $WERCKER_SOURCE_DIR/build/
+      sshkey: $G_LIVE_KEY
+      source: $WERCKER_SOURCE_DIR/build/

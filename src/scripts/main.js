@@ -1,37 +1,17 @@
-'use strict';
+// This is how you require a component from node_modules
+// Make sure to add it to the vendors in /src/scripts/vendor.js
 
 // This is how you require a component from node_modules
 // Make sure to add it to the vendors in /src/scripts/vendor.js
-var $ = require('jquery');
-var contentIframeEl = $('#styleguide-content');
-var navItems = $('.js-styleguide-nav-item');
-var activeClass = 'styleguide-nav-item--active';
-var sidebar = $('.styleguide-sidebar');
+const $ = require('jquery');
 
-// load the correct page in the iframe
-window.onload = function() {
-  loadIframe();
-};
-
-// Event handler for the browsers back/forward buttons
-window.addEventListener('popstate', function(event) {
-  loadIframe();
-});
-
-// The code for the website comes here.
-navItems.each(function(i) {
-  $(this).find('.js-styleguide-nav-link').on('click', function(e) {
-    var target = $(this).attr('href');
-    e.preventDefault();
-    setIframeSrc(target);
-    window.history.pushState(null, null, '?page=' + target);
-    $('.' + activeClass).removeClass(activeClass);
-    $(this).parent().addClass(activeClass);
-  });
-})
+const contentIframeEl = $('#styleguide-content');
+const navItems = $('.js-styleguide-nav-item');
+const activeClass = 'styleguide-nav-item--active';
+const sidebar = $('.styleguide-sidebar');
 
 function setIframeSrc(url) {
-  var parentContainer = contentIframeEl.parent();
+  const parentContainer = contentIframeEl.parent();
   contentIframeEl.remove();
   contentIframeEl.attr('src', url);
   parentContainer.append(contentIframeEl);
@@ -41,14 +21,22 @@ function setIframeSrc(url) {
 }
 
 function convertURL(url) {
-  var page = url.substr(url.indexOf('?') + 6);
-  var baseURL = window.location.href.split('?')[0];
+  const page = url.substr(url.indexOf('?') + 6);
+  const baseURL = window.location.href.split('?')[0];
   return baseURL + page;
 }
 
+function setActiveClass(url) {
+  sidebar.find(`.${activeClass}`).removeClass(activeClass);
+  if (url.includes('?page=')) {
+    const target = url.substr(url.indexOf('?') + 6).split('.')[0];
+    $(`a[href*=${target}]`).addClass(activeClass);
+  }
+}
+
 function loadIframe() {
-  var currentURL = window.location.href;
-  var url = convertURL(window.location.href);
+  const currentURL = window.location.href;
+  const url = convertURL(window.location.href);
   setActiveClass(currentURL);
   if (currentURL.includes('?page=')) {
     setIframeSrc(url);
@@ -57,10 +45,20 @@ function loadIframe() {
   }
 }
 
-function setActiveClass(url) {
-    sidebar.find('.' + activeClass).removeClass(activeClass);
-    if (url.includes('?page=')) {
-      var target = url.substr(url.indexOf('?') + 6).split('.')[0];
-      $('a[href*=' + target + ']').addClass(activeClass);
-    }
-}
+// load the correct page in the iframe
+window.onload = () => loadIframe();
+
+// Event handler for the browsers back/forward buttons
+window.addEventListener('popstate', loadIframe);
+
+// The code for the website comes here.
+navItems.each(() => {
+  $(this).find('.js-styleguide-nav-link').on('click', function (e) {
+    const target = $(this).attr('href');
+    e.preventDefault();
+    setIframeSrc(target);
+    window.history.pushState(null, null, `?page=${target}`);
+    $(`.${activeClass}`).removeClass(activeClass);
+    $(this).parent().addClass(activeClass);
+  });
+});

@@ -1,21 +1,22 @@
-'use strict';
-var merge      = require('merge-stream');
-var glob       = require('glob').sync;
+const merge = require('merge-stream');
+const glob = require('glob').sync;
 
-module.exports = function (gulp, $, config) {
-  var srcFiles  = config.paths.content.src;
-  var languages = config.languages;
-  var destFiles = config.paths.content.dest;
-  var buildDest = config.basePaths.dest;
+module.exports = (gulp, $, config) => {
+  const srcFiles = config.paths.content.src;
+  const languages = config.languages;
+  const destFiles = config.paths.content.dest;
+  const buildDest = config.basePaths.dest;
 
   // '../filename.html' => 'Filename'
   // Isn't there a node package to help with this?
-  var getFileName = function(link) {
-    var filename = new String(link).substring(link.lastIndexOf('/') + 1);
-      if(filename.lastIndexOf('.') != -1)
-        filename = filename.substring(0, filename.lastIndexOf('.'));
-     return filename;
-  }
+  const getFileName = (link) => {
+    // eslint-disable-next-line no-new-wrappers
+    let filename = new String(link).substring(link.lastIndexOf('/') + 1);
+    if (filename.lastIndexOf('.') !== -1) {
+      filename = filename.substring(0, filename.lastIndexOf('.'));
+    }
+    return filename;
+  };
 
   // '../filename.html'
   // =>
@@ -23,12 +24,10 @@ module.exports = function (gulp, $, config) {
   //   title: 'Filename',
   //   link: '../filename.html',
   // }
-  var transformLinks = function(link) {
-    return {
-      title: getFileName(link),
-      link: link
-    }
-  }
+  const transformLinks = link => ({
+    title: getFileName(link),
+    link
+  });
 
   // '**/*.html'
   // =>
@@ -41,24 +40,22 @@ module.exports = function (gulp, $, config) {
   //     ...
   //   }
   // }
-  var replaceGlobs = function(key, value) {
+  const replaceGlobs = (key, value) => {
     if (key === 'links' && typeof value === 'string') {
-      var links = glob(value, {cwd: buildDest});
-      return links.map(transformLinks);
-    } else {
-      return value;
+      return glob(value, { cwd: buildDest }).map(transformLinks);
     }
-  }
+    return value;
+  };
 
-  var task = function () {
+  const task = () => {
     // Generate the language file for each language
-    var contentStreams = languages.map(function(language) {
-      return gulp.src(srcFiles + language + '/**/*.yml')
-              .pipe($.concat(language + '.yml'))
-              .pipe($.yaml({space: 2, replacer: replaceGlobs}))
-              // TODO: warn when there is a duplicate key
-              .pipe(gulp.dest(destFiles));
-    });
+    const contentStreams = languages.map(language =>
+      gulp.src(`${srcFiles}${language}/**/*.yml`)
+        .pipe($.concat(`${language}.yml`))
+        .pipe($.yaml({ space: 2, replacer: replaceGlobs }))
+        // TODO: warn when there is a duplicate key
+        .pipe(gulp.dest(destFiles))
+    );
 
     return merge(contentStreams);
   };
