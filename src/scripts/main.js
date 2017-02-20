@@ -52,7 +52,7 @@ window.onload = () => loadIframe();
 window.addEventListener('popstate', loadIframe);
 
 // The code for the website comes here.
-navItems.each(() => {
+navItems.each(function () {
   $(this).find('.js-styleguide-nav-link').on('click', function (e) {
     const target = $(this).attr('href');
     e.preventDefault();
