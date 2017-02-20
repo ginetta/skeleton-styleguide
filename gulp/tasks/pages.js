@@ -34,7 +34,7 @@ module.exports = (gulp, $, config) => {
   const task = () => {
     // Load the content for the page
     function loadContent(language) {
-      return yamljs.load(`${contentPath}${language}.yml`);
+      return require(`${path.resolve(__dirname, '../..')}/${contentPath}${language}.json`);
     }
 
     function getDestPath(language) {
@@ -43,7 +43,7 @@ module.exports = (gulp, $, config) => {
     }
 
     function loadMergedDefinitions() {
-      return glob.sync(`${config.basePaths.src}**/definition.yml`)
+      return glob.sync(`./${config.basePaths.src}**/definition.yml`)
         .reduce((acc, definitionPath) => {
           const normalizedPath = definitionPath
             .replace(config.basePaths.src, '')
