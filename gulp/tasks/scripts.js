@@ -1,49 +1,29 @@
-'use strict';
-var stream  = require('../utils/browserSync').stream;
-var webpack = require('webpack');
-var gulpWebpack = require('webpack-stream');
-var glob = require('glob');
+const stream = require('../utils/browserSync').stream;
+const handleError = require('../utils/handleError');
+const webpack = require('webpack');
+const gulpWebpack = require('webpack-stream');
+const webpackConfig = require('../../webpack.config');
 
-module.exports = function (gulp, $, config) {
-  var tasksHelper  = require('../utils/tasksHelpers')(gulp, config);
-  var scriptsFiles = config.appFiles.scripts;
-  var vendorFile = config.paths.scripts.src + 'vendor.js';
-  var srcFiles = glob.sync(scriptsFiles, {ignore: vendorFile});
-  var destPath   = config.paths.scripts.dest;
-  var skeletonRoot = config.basePaths.root;
-  var srcRoot = config.basePaths.src;
+module.exports = (gulp, $, config) => {
+  const scriptsFiles = config.appFiles.scripts;
+  const destPath = config.paths.scripts.dest;
+  const manifestFile = config.paths.revManifest.dest;
 
-  var task = function () {
-    return gulp.src(scriptsFiles)
-      .pipe($.eslint({envs: ['browser']}))
+  const task = () =>
+    gulp.src(scriptsFiles)
+      .pipe($.plumber(handleError))
+      .pipe($.eslint())
       .pipe($.eslint.format())
-      .pipe(gulpWebpack({
-        debug: true, //TODO improve this one we have env depending builds
-        entry: {
-          main: srcFiles,
-          // Add modules you want to load from vendors to this file
-          vendor: vendorFile
-        },
-        output: {
-          filename: 'main.js'
-        },
-        loaders: [
-          { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/}
-        ],
-        resolve: {
-          // Makes sure the paths are relative to the root and not this file
-          root: skeletonRoot,
-          // Makes sure the compiler looks for modules in /src and node_modules
-          modulesDirectories: [srcRoot, 'node_modules']
-        },
-        plugins: [
-          // Makes sure the vendors are only imported once in this seperate file
-          new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.min.js')
-        ]
-      }))
+      .pipe(gulpWebpack(webpackConfig(config), webpack))
+      .pipe($.if(config.isProd, $.rev()))
+      .pipe($.if(config.isProd, gulp.dest(destPath)))
+      .pipe($.if(config.isProd, $.rev.manifest(manifestFile, {
+        merge: true,
+        base: destPath,
+      })))
       .pipe(gulp.dest(destPath))
-      .pipe(stream());
-  };
+      .pipe(stream())
+      ;
 
   task.description = 'Move all javscript files to the build';
   return task;

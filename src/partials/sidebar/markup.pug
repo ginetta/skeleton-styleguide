@@ -1,5 +1,5 @@
-include ../../modules/header/markup.jade
-include ../../modules/nav-group/markup.jade
+include ../../modules/header/markup
+include ../../modules/nav-group/markup
 
 mixin styleguide-sidebar(data, options)
   .styleguide-sidebar
@@ -9,4 +9,3 @@ mixin styleguide-sidebar(data, options)
 
     each navgroup in data.navigation
       +styleguide-nav-group(navgroup)
-

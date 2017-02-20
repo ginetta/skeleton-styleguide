@@ -1,108 +1,105 @@
-'use strict';
-var argv = require('yargs').argv;
-var path = require('path');
+const argv = require('yargs').argv;
+const path = require('path');
 
-module.exports = function (dest) {
-  var root = path.join(__dirname, '..');
-  var basePaths = {
-    root:    path.join(__dirname, '..'),
-    src:     root + '/src/',
-    content: root + '/content/',
-    assets:  root + '/assets/',
-    dest:    root + '/build/',
-    tmp:     root + '/.tmp/'
+module.exports = (dest) => {
+  const basePaths = {
+    root: path.join(__dirname, '..'),
+    src: 'src/',
+    content: 'content/',
+    assets: 'assets/',
+    dest: 'build/',
+    tmp: '.tmp/',
   };
 
-  // This helps overwriting the target destination
-  // For changing .src folders you need to overwrite by hand:
-  // conf = require('thisConfig');
-  // conf.paths.content.src = 'anotherFolder'
   if (dest != undefined) {
     basePaths.dest = dest;
   }
 
-  var languages = ['en'];
+  const languages = ['en'];
 
-  var paths = {
+  const paths = {
     scripts: {
-      src:  basePaths.src + 'scripts/',
-      dest: basePaths.dest + 'js/'
+      src: `${basePaths.src}scripts/`,
+      dest: `${basePaths.dest}js/`,
     },
     styles: {
-      src:  basePaths.src + 'styles/',
-      dest: basePaths.dest + 'css/'
+      src: `${basePaths.src}styles/`,
+      dest: `${basePaths.dest}css/`,
     },
     content: {
-      src:  basePaths.content + 'data/',
-      dest: basePaths.dest + 'content/data/'
+      src:  `${basePaths.content}data/`,
+      dest: `${basePaths.dest}content/data/`
     },
     pages: {
-      src:  basePaths.src + 'pages/',
-      dest: basePaths.dest
+      src: `${basePaths.src}pages/`,
+      dest: basePaths.dest,
     },
     layouts: {
-      src:  basePaths.src + 'layouts/'
+      src: `${basePaths.src}layouts/`,
     },
     images: {
-      src:  basePaths.content + 'images/',
-      dest: basePaths.dest + 'content/images/'
+      src: `${basePaths.content}images/`,
+      dest: `${basePaths.dest}content/images/`,
     },
     logos: {
-      src:  basePaths.assets + 'logos/',
-      dest: basePaths.dest + 'assets/logos/'
+      src: `${basePaths.assets}logos/`,
+      dest: `${basePaths.dest}assets/logos/`,
     },
     favicons: {
-      src:  basePaths.assets + 'favicons/',
-      dest: basePaths.dest
+      src: `${basePaths.assets}favicons/`,
+      dest: basePaths.dest,
     },
     fonts: {
-      src:  basePaths.assets + 'fonts/',
-      dest: basePaths.dest + 'assets/fonts/'
-    }
+      src: `${basePaths.assets}fonts/`,
+      dest: `${basePaths.dest}assets/fonts/`,
+    },
+    revManifest: {
+      dest: `${basePaths.dest}rev-manifest.json`,
+    },
   };
 
-  var appFiles = {
-    scripts:   paths.scripts.src + '**/*.js',
-    styles:    paths.styles.src + '**/*.scss',
-    content:   paths.content.src + '**/*.yml',
-    pages:     paths.pages.src + '**/*.jade',
-    layouts:   paths.layouts.src + '**/*.jade',
-    images:    paths.images.src + '**/*',
-    logos:     paths.logos.src + '**/*',
-    favicons:  paths.favicons.src + '**/*',
-    fonts:     paths.fonts.src + '**/*'
+  const appFiles = {
+    scripts: `${paths.scripts.src}**/*.js`,
+    styles: `${paths.styles.src}**/*.scss`,
+    content: `${paths.content.src}**/*.yml`,
+    pages: `${paths.pages.src}**/*.pug`,
+    layouts: `${paths.layouts.src}**/*.pug`,
+    images: `${paths.images.src}**/*`,
+    logos: `${paths.logos.src}**/*`,
+    favicons: `${paths.favicons.src}**/*`,
+    fonts: `${paths.fonts.src}**/*`,
   };
 
-  var components = [
-    basePaths.src + 'modules/',
-    basePaths.src + 'partials/'
+  const components = [
+    `${basePaths.src}modules/`,
+    `${basePaths.src}elements/`,
+    `${basePaths.src}partials/`,
   ];
 
-  var gulpFiles = [
+  const gulpFiles = [
     'gulp/**/*.js',
-    'gulpfile.js'
+    'gulpfile.js',
   ];
 
-  var environments = {
+  const environments = {
     testing: {
-      host:        argv.host,
-      username:    argv.username,
+      host: argv.host,
+      username: argv.username,
       projectPath: 'preview.ginetta.net/skeleton-styleguide/',
       releasePath: argv.path,
-      privateKey:  argv.privateKey
-    }
+      privateKey: argv.privateKey,
+    },
   };
 
   return {
-    root:         root,
-    basePaths:    basePaths,
-    languages:    languages,
-    paths:        paths,
-    appFiles:     appFiles,
-    components:   components,
-    gulpFiles:    gulpFiles,
-    environments: environments
+    root,
+    basePaths,
+    languages,
+    paths,
+    appFiles,
+    components,
+    gulpFiles,
+    environments,
+    isProd: process.env.NODE_ENV === 'production',
   };
 };
-
-

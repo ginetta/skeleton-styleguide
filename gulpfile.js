@@ -1,11 +1,10 @@
-'use strict';
-var gulp        = require('gulp');
-var config      = require('./gulp/config')();
-var t           = require('./gulp/utils/tasksHelpers')(gulp, config);
+const gulp = require('gulp');
+const config = require('./gulp/config')();
+const t = require('./gulp/utils/tasksHelpers')(gulp, config);
 
-///////////////
+// ----------//
 //   Build   //
-///////////////
+// ----------//
 
 // Cleans the build folder
 gulp.task('clean', t.getTask('clean'));
@@ -16,7 +15,7 @@ gulp.task('build:assets', t.getTask('assets'));
 // Concatenates all the content files
 gulp.task('build:content', t.getTask('content'));
 
-// Generate all pages from the jade files
+// Generate all pages from the pug files
 gulp.task('build:pages', t.getTask('pages'));
 
 // Generate all stylesheets from the sass files
@@ -29,29 +28,27 @@ gulp.task(
   'build',
   gulp.series(
     'clean',
+    'build:assets',
     gulp.parallel(
-      gulp.series(
-        'build:content',
-        'build:pages'
-      ),
-      'build:assets',
       'build:styles',
       'build:scripts'
+    ),
+    gulp.series(
+      'build:content',
+      'build:pages'
     )
   )
 );
 
-
-////////////
+// -------//
 // Deploy //
-////////////
+// -------//
 
 gulp.task('deploy', t.getTask('deploy'));
 
-
-/////////////
+// ------- -//
 //  Others  //
-/////////////
+// ------ --//
 
 // Serve the build folder
 gulp.task('serve', t.getTask('serve'));
