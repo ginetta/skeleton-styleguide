@@ -7,11 +7,12 @@
     "3.base",
     "4.layout";
 
-@import "../modules/**/*.scss";
-@import "../partials/**/*.scss";
+@import "../modules/header/style.scss";
+@import "../modules/nav-group/style.scss";
+@import "../partials/content/style.scss";
+@import "../partials/sidebar/style.scss";
 
 @import
     "5.helpers",
     "6.print",
     "7.shame";
-
